@@ -1,0 +1,7 @@
+{
+    "name": "My Express App",
+    "mail": {
+        "host": "Mail Server",
+        "password": 1234
+    }
+}
