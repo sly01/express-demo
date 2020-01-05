@@ -11,6 +11,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(helmet());
 
+app.set("view engine", "pug");
+app.set("views", "./views"); // default
+
 console.log("App name:", config.get('name'));
 console.log("Mail Host:", config.get('mail.host'));
 console.log("Mail Pass:", config.get('mail.password'));
@@ -28,7 +31,7 @@ const courses = [
 ];
 
 app.get('/', (req, res) => {
-    res.send('Hello World');
+    res.render('index', {title: "My Express App", message: "Hello Message"});
 });
 
 app.get('/api/courses', (req, res) => {
